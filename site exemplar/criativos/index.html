@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Boa Quinta! 🌟</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #FF6B9D, #C06C84, #6C5B7B, #355C7D);
+            background-size: 400% 400%;
+            animation: gradientFlow 10s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .stars {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+            animation: zoomIn 0.8s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            color: #FFD700;
+            text-shadow: 4px 4px 0px #FF1493, 8px 8px 0px #00CED1;
+            margin-bottom: 10px;
+            animation: jump 1s ease-in-out infinite;
+        }
+
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-40px); }
+        }
+
+        .subtitle {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .message {
+            font-size: 1.4rem;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(255,105,180,0.5), rgba(0,206,209,0.5));
+            padding: 30px;
+            border-radius: 20px;
+            margin: 25px 0;
+            max-width: 550px;
+            backdrop-filter: blur(10px);
+            border: 3px dashed #FFD700;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .countdown {
+            font-size: 1.8rem;
+            color: #FFD700;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-weight: bold;
+            border: 2px solid #FFD700;
+        }
+
+        button {
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #355C7D;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            margin: 20px 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Elementos animados flutuantes */
+        .floating-element {
+            position: fixed;
+            font-size: 3rem;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
+
+        .element1 { left: 5%; bottom: 20%; animation-delay: 0s; }
+        .element2 { right: 10%; top: 30%; animation-delay: 1s; }
+        .element3 { left: 15%; top: 50%; animation-delay: 2s; }
+        .element4 { right: 15%; bottom: 40%; animation-delay: 1.5s; }
+        .element5 { left: 60%; top: 20%; animation-delay: 2.5s; }
+
+        /* Confete */
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background: #FFD700;
+            animation: confettiFall 4s infinite ease-in;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .celebration-text {
+            font-size: 2rem;
+            color: #FFD700;
+            margin: 20px 0;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .subtitle { font-size: 1.8rem; }
+            .message { font-size: 1.1rem; }
+            .floating-element { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Elementos flutuantes -->
+    <div class="floating-element element1">🌟</div>
+    <div class="floating-element element2">🎉</div>
+    <div class="floating-element element3">😄</div>
+    <div class="floating-element element4">🎊</div>
+    <div class="floating-element element5">✨</div>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
+        <h1>BOA QUINTA! 🌟</h1>
+        <div class="subtitle">Quase lá! Faltam só 2 dias para o fim de semana! 🎉</div>
+        
+        <div class="message">
+            <p>Quinta é aquele dia especial onde a gente já consegue ouvir o som do fim de semana chegando! 😄</p>
+            <p>Que essa quinta seja repleta de alegria, bom humor e muita energia positiva! ✨</p>
+        </div>
+
+        <div class="countdown" id="countdown">
+            ⏰ Faltam 2 dias para o FIM DE SEMANA! ⏰
+        </div>
+
+        <div class="celebration-text">
+            Você está QUASE LÁ! 🚀
+        </div>
+
+        <button onclick="celebrar()">🎊 Vamos Comemorar! 🎊</button>
+    </div>
+
+    <script>
+        // Criar confete ao carregar
+        function criarConfete() {
+            for (let i = 0; i < 60; i++) {
+                let confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.background = ['#FFD700', '#FF1493', '#00CED1', '#00FF00', '#FF6B9D', '#FF69B4'][Math.floor(Math.random() * 6)];
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                confetti.style.width = Math.random() * 12 + 8 + 'px';
+                confetti.style.height = confetti.style.width;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // Função para celebrar ao clicar
+        function celebrar() {
+            for (let i = 0; i < 150; i++) {
+                let confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '50%';
+                confetti.style.background = ['#FFD700', '#FF1493', '#00CED1', '#00FF00', '#FF6B9D', '#FF69B4'][Math.floor(Math.random() * 6)];
+                confetti.style.width = Math.random() * 15 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.animationDuration = (Math.random() * 4 + 2) + 's';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0%';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 6000);
+            }
+
+            // Tremida celebratória
+            document.querySelector('.container').style.animation = 'none';
+            setTimeout(() => {
+                document.querySelector('.container').style.animation = 'jump 0.4s';
+            }, 10);
+        }
+
+        // Criar estrelas de fundo aleatoriamente
+        function criarEstrelas() {
+            for (let i = 0; i < 30; i++) {
+                let star = document.createElement('div');
+                star.className = 'stars';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                document.body.appendChild(star);
+            }
+        }
+
+        // Inicializar
+        criarConfete();
+        criarEstrelas();
+
+        // Criar confete a cada 6 segundos
+        setInterval(criarConfete, 6000);
+    </script>
+</body>
+</html>
